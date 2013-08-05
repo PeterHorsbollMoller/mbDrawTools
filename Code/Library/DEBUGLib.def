@@ -1,0 +1,19 @@
+
+Declare Sub DEBUGEnableByFile(
+					ByVal sFile As String		'Name of file to exists to enable debug state
+					)
+Declare Sub DEBUGEnable(	ByVal bValue As Logical		'Value (true/false) to set the debug state to
+					)
+
+Declare Function DEBUGIsEnabled() As Logical
+
+Declare Sub DEBUGPrint(
+				ByVal sMessage As String		'Message to print to the message window - and write to debug file.
+				)
+Declare Sub DEBUGNote(
+				ByVal sMessage As String		'Message to show in messagebox - and write to debug file.
+				)
+
+Declare Sub DEBUGWriteToFile(						'Note this function is automatically called from DEBUGPrint() and DEBUGNote()
+					ByVal sMessage As String	'Message to write to debug file.
+					)

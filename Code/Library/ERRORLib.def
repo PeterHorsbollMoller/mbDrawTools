@@ -1,0 +1,6 @@
+Declare Sub ERRCreate(	  ByVal nErrorNo As Integer
+				, ByVal sErrorText As String
+				, ByVal sErrorDescription As string
+				)
+Declare Sub ERRShow()
+Declare Sub ERRPrint()

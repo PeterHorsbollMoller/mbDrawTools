@@ -1,0 +1,5 @@
+Declare Function TABIsOpen(ByVal sTab As String) As Logical
+Declare Sub TABClose(ByVal sTab As String)
+Declare Sub TABDrop(ByVal sTab As String)
+
+Declare Function TABGetNameFromTabFile(ByVal sTabFile As String) As String

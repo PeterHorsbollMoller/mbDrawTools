@@ -1,0 +1,11 @@
+Declare Sub PRGISetApplicationName(ByVal sName As String)
+Declare Function PRGIGetApplicationName() As String
+Declare Sub PRGISetApplicationVersion(ByVal sVersion As String)
+Declare Function PRGIGetApplicationVersion() As String
+Declare Sub PRGISetApplicationCopyrightYear(ByVal sYear As String)
+Declare Function PRGIGetApplicationCopyrightYear() As String
+Declare Sub PRGISetApplicationHelpFile(ByVal sHelpFile As String)
+Declare Function PRGIGetApplicationHelpFile() As String
+
+Declare Sub PRGIAboutbox
+Declare Sub PRGILaunchHelpFile

@@ -1,0 +1,13 @@
+Type T_MI_POINT
+	fX	As Float
+	fY	As Float
+End Type
+
+Declare Sub tmipCopy( tmipFrom As T_MI_POINT, tmipTo As T_MI_POINT)
+Declare Function tmipAreIdentical( tmip1 As T_MI_POINT, tmip2 As T_MI_POINT) As Logical
+
+Declare Function tmipGetPoint( tmip As T_MI_POINT) As Object
+Declare Function tmipGetPointWithStyle( tmip As T_MI_POINT, ByVal symUse As Symbol) As Object
+
+
+

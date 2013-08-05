@@ -1,0 +1,170 @@
+'*******************************************************************************
+'**   Created by Peter Horsbøll Møller, Pitney Bowes Business Insight
+'** 	Program:	DrawTools
+'** 	Modul:	DrawToolsMenu.mb
+'**
+'*******************************************************************************
+'	12-01-2011 14:07:37	1.01	Added extra tools:
+'						- Add new start node
+'						- Add new end node
+'						- Add node at either end or start, depends on which is closest
+'						- Remove start node
+'						- Remove end node
+'	12-01-2011 15:56:07	1.02	Added extra tool
+'						- combine selected into new object in editable layer
+'	13-09-2011 08:42:11	1.03	Added extra tool
+'						- add gaps into current editable table where clicked
+'	11-04-2013 09:51:29	1.04	Minor changes, mostly cosmetic to the source code
+'*******************************************************************************
+
+'-------------------------------------
+Include "Library\MapBasic.def"
+Include "Library\Icons.def"
+Include "Library\Menu.def"
+'**default constants...
+Include "Library\Defaults.def"
+
+Define xProgram 		"DrawTools"
+Define xProgramMenu		"DrawTools"
+Define xVersion 		"1.04"
+Define xYear			"2011"
+Define xAddToMenuBar	FALSE
+
+Define FILE_INI			GetFolderPath$(FOLDER_MI_PREFERENCE) & xProgram & ".ini"
+Define FILE_DBG			ApplicationDirectory$() & xProgram & ".dbg"
+'Define FILE_DLL			ApplicationDirectory$() & xProgram & ".dll"
+Define FILE_PAD			GetFolderPath$(FOLDER_MI_PREFERENCE) & xProgram & ".btp"
+
+'-------------------------------------
+Include "Library\ProgramInfo.def"
+Include "Library\DEBUGLib.def"
+Include "Library\ERRORLib.def"
+Include "Library\TABLELib.def"
+
+Include "DrawTools.def"
+
+'-----------------------------------------------------------------------------------------
+Declare Sub Main
+Declare Sub EndProgram
+
+Declare Sub WinFocusChangedHandler
+Declare Sub WinChangedHandler
+Declare Sub SelChangedHandler
+
+'**********************************************************************************************''
+'**   Created by Peter Horsbøll Møller, Pitney Bowes Business Insight
+'
+'**********************************************************************************************''
+Sub Main
+
+OnError GoTo ErrorOccured
+
+	'***Initializing ApplicationInfo
+	Call PRGISetApplicationName(xProgram)
+	Call PRGISetApplicationVersion(xVersion)
+	Call PRGISetApplicationCopyrightYear(xYear)
+
+	'***Enabling Debug if file exists
+	Call DEBUGEnableByFile(FILE_DBG)
+
+	Create Menu xProgramMenu As
+		'""
+		'	HelpMsg ""
+		'	Calling ,
+		"(-",
+		"End program"
+			Calling EndProgram,
+		"About..."
+			Calling PRGIAboutbox
+
+	If xAddToMenuBar Then
+		'Remove the Window menu and Help menu
+		Alter Menu Bar Remove ID 6, ID 7
+		'Add the custom menu, then the Window & Help menus
+		Alter Menu Bar Add xProgramMenu, ID 6, ID 7
+	Else
+		Alter Menu ID 4
+			Add "(-", xProgramMenu  As xProgramMenu
+	End If
+
+	Call DTSetIconsFile("")
+	Call DTAddToolsToButtonPad(TB_DRAWING, "")
+
+	Exit Sub
+'-------------------------
+ErrorOccured:
+	Call ERRCreate(Err(), Error$(), "Main")
+	Call ERRShow()
+
+End Sub
+
+'****************************************
+'**   Created by Peter Horsbøll Møller, Pitney Bowes Business Insight
+'**   Ending MapBasic application
+'****************************************
+Sub EndProgram
+
+OnError GoTo ErrorOccured
+
+	End Program
+	Exit Sub
+'-------------------------
+ErrorOccured:
+	Call ERRCreate(Err(), Error$(), "EndProgram")
+	Call ERRShow()
+
+End Sub
+
+'**********************************************************************************************''
+'Created by Peter Horsbøll Møller, Pitney Bowes Business Insight
+'Parameters:
+'
+'**********************************************************************************************''
+Sub WinFocusChangedHandler
+
+OnError GoTo ErrorOccured
+
+	Call DTWinFocusChangedHandler
+	Exit Sub
+'-------------------------
+ErrorOccured:
+	Call ERRCreate(Err(), Error$(), "WinFocusChangedHandler")
+	Call ERRShow()
+
+End Sub
+
+'**********************************************************************************************''
+'Created by Peter Horsbøll Møller, Pitney Bowes Business Insight
+'Parameters:
+'
+'**********************************************************************************************''
+Sub WinChangedHandler
+
+OnError GoTo ErrorOccured
+
+	Call DTWinChangedHandler
+	Exit Sub
+'-------------------------
+ErrorOccured:
+	Call ERRCreate(Err(), Error$(), "WinChangedHandler")
+	Call ERRShow()
+
+End Sub
+
+'**********************************************************************************************''
+'Created by Peter Horsbøll Møller, Pitney Bowes Business Insight
+'Parameters:
+'
+'**********************************************************************************************''
+Sub SelChangedHandler
+
+OnError GoTo ErrorOccured
+
+	Call DTSelChangedHandler
+	Exit Sub
+'-------------------------
+ErrorOccured:
+	Call ERRCreate(Err(), Error$(), "SelChangedHandler")
+	Call ERRShow()
+
+End Sub

@@ -1,0 +1,11 @@
+[LINK]
+Application=..\DrawTools.mbx
+Module=Library\DEBUGLib.mbo
+Module=Library\FILELib.mbo
+Module=Library\ERRORLib.mbo
+Module=Library\MAPPERLib.mbo
+Module=Library\ProgramInfo.mbo
+Module=Library\STRINGLib.mbo
+Module=Library\TABLELib.mbo
+Module=DrawToolsMenu.mbo
+Module=DrawTools.mbo

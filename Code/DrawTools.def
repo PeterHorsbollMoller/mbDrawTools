@@ -1,0 +1,20 @@
+Declare Sub DTAddToolsToButtonPad(ByVal nButtonPadID As Integer, ByVal sButtonPadName As String)
+
+Declare Sub DTWinFocusChangedHandler
+Declare Sub DTWinChangedHandler
+Declare Sub DTSelChangedHandler
+Declare Sub DTToggleDrawTools
+
+Declare Sub DTRegionAdd
+Declare Sub DTRegionRemove
+Declare Sub DTPolylineAddNode
+Declare Sub DTPolylineAddStartNode
+Declare Sub DTPolylineAddEndNode
+Declare Sub DTPolylineRemoveStartNode
+Declare Sub DTPolylineRemoveEndNode
+Declare Sub DTCombineIntoNew
+Declare Sub DTCreateGaps
+
+Declare Function DTGetIconsFile() As String
+Declare Sub DTSetIconsFile(ByVal sFile As String)
+

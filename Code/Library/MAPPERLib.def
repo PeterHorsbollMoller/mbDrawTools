@@ -1,0 +1,1 @@
+Declare Function MAPGetEditLayerName(ByVal nMID As Integer) As String
