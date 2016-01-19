@@ -15,6 +15,7 @@
 '	13-09-2011 08:42:11	1.03	Added extra tool
 '						- add gaps into current editable table where clicked
 '	11-04-2013 09:51:29	1.04	Minor changes, mostly cosmetic to the source code
+'	19-01-2016 13:19:22	1.10 Improved the precision on the tools by specifying the coordinate system of the table to edit and not the map or no coordsys
 '*******************************************************************************
 
 '-------------------------------------
@@ -26,8 +27,8 @@ Include "Library\Defaults.def"
 
 Define xProgram 		"DrawTools"
 Define xProgramMenu		"DrawTools"
-Define xVersion 		"1.04"
-Define xYear			"2011"
+Define xVersion 		"1.1"
+Define xYear			"2016"
 Define xAddToMenuBar	FALSE
 
 Define FILE_INI			GetFolderPath$(FOLDER_MI_PREFERENCE) & xProgram & ".ini"

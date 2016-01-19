@@ -341,6 +341,7 @@ Dim	oDrawn, oExisting As Object
 
 OnError GoTo ErrorOccured
 
+	Set CoordSys Table Selection
 	oDrawn	= CommandInfo(CMD_INFO_CUSTOM_OBJ)
 
 	Fetch First From Selection
@@ -380,6 +381,7 @@ Dim	oDrawn, oExisting As Object
 
 OnError GoTo ErrorOccured
 
+	Set CoordSys Table Selection
 	oDrawn	= CommandInfo(CMD_INFO_CUSTOM_OBJ)
 
 	Fetch First From Selection
@@ -423,7 +425,8 @@ Dim	oExisting As Object,
 
 OnError GoTo ErrorOccured
 
-	Set CoordSys Window FrontWindow()
+'	Set CoordSys Window FrontWindow()
+	Set CoordSys Table Selection
 	fX	= CommandInfo(CMD_INFO_X)
 	fY	= CommandInfo(CMD_INFO_Y)
 
@@ -493,7 +496,8 @@ Dim	oExisting As Object,
 
 OnError GoTo ErrorOccured
 
-	Set CoordSys Window FrontWindow()
+'	Set CoordSys Window FrontWindow()
+	Set CoordSys Table Selection
 	fX	= CommandInfo(CMD_INFO_X)
 	fY	= CommandInfo(CMD_INFO_Y)
 
@@ -542,7 +546,8 @@ Dim	oExisting As Object,
 
 OnError GoTo ErrorOccured
 
-	Set CoordSys Window FrontWindow()
+'	Set CoordSys Window FrontWindow()
+	Set CoordSys Table Selection
 	fX	= CommandInfo(CMD_INFO_X)
 	fY	= CommandInfo(CMD_INFO_Y)
 
